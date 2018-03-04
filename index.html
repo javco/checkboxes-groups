@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Your Website</title>
+</head>
+
+<body>
+
+	<form id="MyForm" action="#" method="post">
+
+		<h3>Group 1</h3>
+
+		<input type="checkbox" class="radio" id="checkbox1" name="group1" value="Checkbox 1" />
+		<label for="checkbox1">Checkbox 1</label>
+		
+		<input type="checkbox" class="radio" id="checkbox2" name="group1" value="Checkbox 2" />
+		<label for="checkbox2">Checkbox 2</label>
+
+		<input type="checkbox" class="radio" id="checkbox3" name="group1" value="Checkbox 3" />
+		<label for="checkbox3">Checkbox 3</label>
+
+		<br /><br />
+
+		<h3>Group 2</h3>
+		
+		<input type="checkbox" class="radio" id="checkbox4" name="group2" value="Checkbox 4" />
+		<label for="checkbox4">Checkbox 4</label>
+		
+		<input type="checkbox" class="radio" id="checkbox5" name="group2" value="Checkbox 5" />
+		<label for="checkbox5">Checkbox 5</label>
+
+		<input type="checkbox" class="radio" id="checkbox6" name="group2" value="Checkbox 6" />
+		<label for="checkbox6">Checkbox 6</label>
+
+	</form>
+
+	<script type="text/javascript">
+	jQuery(document).ready(function(){
+		$("input:checkbox.radio").on('click', function() {
+		  // in the handler, 'this' refers to the box clicked on
+		  var $box = $(this);
+		  if ($box.is(":checked")) {
+		    // the name of the box is retrieved using the .attr() method
+		    // as it is assumed and expected to be immutable
+		    var group = "input:checkbox[name='" + $box.attr("name") + "']";
+		    // the checked state of the group/box on the other hand will change
+		    // and the current value is retrieved using .prop() method
+		    $(group).prop("checked", false);
+		    $box.prop("checked", true);
+		  } else {
+		    $box.prop("checked", false);
+		  }
+		});
+	});
+	</script>
+
+</body>
+
+</html>
